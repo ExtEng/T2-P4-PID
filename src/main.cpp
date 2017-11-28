@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
   double init_Kp = atof(argv[1]);
   double init_Ki = atof(argv[2]);
   double init_Kd = atof(argv[3]);
+  double Throtle = atof(argv[4]);
   
   pid.Init(init_Kp,init_Ki,init_Kd);
 
@@ -70,7 +71,7 @@ int main(int argc, char *argv[])
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = 0.25;
+          msgJson["throttle"] = Throtle;
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
