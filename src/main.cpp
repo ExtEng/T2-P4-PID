@@ -44,10 +44,12 @@ int main(int argc, char *argv[])
   double init_Ki_v = atof(argv[5]);
   double init_Kd_v = atof(argv[6]);
   
+  double set_speed = atof(argv[7]);
+  
   pid.Init(init_Kp,init_Ki,init_Kd);
   pid_vel.Init(init_Kp_v,init_Ki_v,init_Kd_v);
 
-  h.onMessage([&pid,&pid_vel](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
+  h.onMessage([&pid,&pid_vel,&set_speed](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
@@ -64,8 +66,8 @@ int main(int argc, char *argv[])
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
 		  double throttle;
-		  double set_speed = 25.0;
 		  double speed_error = set_speed - speed;
+		  
           /*
           * TODO: Calcuate steering value here, remember the steering value is
           * [-1, 1].
