@@ -64,8 +64,8 @@ int main(int argc, char *argv[])
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
 		  double throttle;
-		  double Set_speed = 20.0;
-		  double speed_error = Set_speed - speed;
+		  double set_speed = 25.0;
+		  double speed_error = set_speed - speed;
           /*
           * TODO: Calcuate steering value here, remember the steering value is
           * [-1, 1].
