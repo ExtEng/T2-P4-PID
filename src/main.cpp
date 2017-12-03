@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
           * another PID controller to control the speed!
           */
 		  pid.UpdateError(cte);
-		  pid_vel.UpdateError(speed_error)
+		  pid_vel.UpdateError(speed_error);
 		  
           steer_value = pid.TotalError();
 		  throttle = pid_vel.TotalError();
