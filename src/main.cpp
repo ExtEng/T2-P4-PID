@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
   double init_Kd = -3.00;
 
   double init_Kp_v = 1.00;
-  double init_Ki_v = 0.0008;
+  double init_Ki_v = 0.008;
   double init_Kd_v = 0.0;
   
   double set_speed = 50.0;
