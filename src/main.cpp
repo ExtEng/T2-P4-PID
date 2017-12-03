@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
   PID pid_vel;
   
   // TODO: Initialize the pid variable.
+   
+  /* Used For Tuning 
   double init_Kp = atof(argv[1]);
   double init_Ki = atof(argv[2]);
   double init_Kd = atof(argv[3]);
@@ -45,6 +47,16 @@ int main(int argc, char *argv[])
   double init_Kd_v = atof(argv[6]);
   
   double set_speed = atof(argv[7]);
+  */
+  double init_Kp = -0.12;
+  double init_Ki =  0.00;
+  double init_Kd = -3.00;
+
+  double init_Kp_v = 1.00;
+  double init_Ki_v = 0.0008;
+  double init_Kd_v = 0.0;
+  
+  double set_speed = 50.0;
   
   pid.Init(init_Kp,init_Ki,init_Kd);
   pid_vel.Init(init_Kp_v,init_Ki_v,init_Kd_v);
