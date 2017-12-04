@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
   double set_speed = atof(argv[7]);
   */
   double init_Kp = -0.12;
-  double init_Ki =  0.00;
+  double init_Ki = -0.001;
   double init_Kd = -3.00;
 
   double init_Kp_v = 1.00;
