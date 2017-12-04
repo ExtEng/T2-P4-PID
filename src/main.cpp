@@ -77,8 +77,8 @@ int main(int argc, char *argv[])
           double speed = std::stod(j[1]["speed"].get<std::string>());
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
-		  double throttle;
-		  double speed_error = set_speed - speed;
+	  double throttle;
+	  double speed_error = set_speed - speed;
 		  
           /*
           * TODO: Calcuate steering value here, remember the steering value is
@@ -86,11 +86,24 @@ int main(int argc, char *argv[])
           * NOTE: Feel free to play around with the throttle and speed. Maybe use
           * another PID controller to control the speed!
           */
-		  pid.UpdateError(cte);
-		  pid_vel.UpdateError(speed_error);
+	  pid.UpdateError(cte);
+	  pid_vel.UpdateError(speed_error);
 		  
           steer_value = pid.TotalError();
-		  throttle = pid_vel.TotalError();
+          throttle = pid_vel.TotalError();
+	  
+	  if (steer_value > 1.0){
+	     steer_value = 1.0;
+	  } else if (steer_value < -1.0){
+	     steer_value = -1.0; 
+          }
+		  
+	  if (throttle > 1.0){
+		throttle = 1.0;
+	  } else if (throttle< - 1.0){
+		throttle = -1.0; 
+	  }
+		  
 		  
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
