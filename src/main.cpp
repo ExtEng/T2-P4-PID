@@ -48,11 +48,11 @@ int main(int argc, char *argv[])
   
   double set_speed = atof(argv[7]);
   */
-  double init_Kp = -0.11;
+  double init_Kp = -0.12;
   double init_Ki = -0.001;
   double init_Kd = -3.00;
 
-  double init_Kp_v = 1.00;
+  double init_Kp_v = 0.5;
   double init_Ki_v = 0.008;
   double init_Kd_v = 0.0;
   
@@ -77,8 +77,8 @@ int main(int argc, char *argv[])
           double speed = std::stod(j[1]["speed"].get<std::string>());
           double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
-	  double throttle;
-	  double speed_error = set_speed - speed;
+		  double throttle;
+	      double speed_error = set_speed - speed;
 		  
           /*
           * TODO: Calcuate steering value here, remember the steering value is
