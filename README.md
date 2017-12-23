@@ -1,4 +1,4 @@
-## Term 2 - Project 2 : Unscented Kalman Filter  
+## Term 2 - Project 4 : PID Self Driving Car Controler  
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 In this project, my goal was to use the techniques and code examples presented in the Udacity course to control a car through a circuit using a PID controller.
